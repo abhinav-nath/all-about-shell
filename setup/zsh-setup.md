@@ -1,0 +1,2 @@
+- [oh-my-zsh GitHub](https://github.com/ohmyzsh/ohmyzsh)
+- [oh-my-zsh .zshrc template](https://github.com/ohmyzsh/ohmyzsh/blob/master/templates/zshrc.zsh-template)
