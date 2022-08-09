@@ -3,7 +3,7 @@ https://www.shellcheck.net/
 Finds bugs in your shell scripts
 
 
-### exit status of a command using `$?`
+### Check exit status of a command using `$?`
 
 ```shell
 $ ls -l | awk '/^-/' | grep "\.txt"
