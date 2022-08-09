@@ -1,2 +1,3 @@
-# shell-scripting-hands-on
-This repository contains shell scripting snippets. Great for recalling basic syntaxes while writing shell scripts.
+# all-about-bash
+
+This repository contains bash scripting snippets. Great for recalling basic syntaxes while writing shell scripts.
