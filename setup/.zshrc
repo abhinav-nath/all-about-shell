@@ -6,6 +6,9 @@ export ZSH="/Users/<user>/.oh-my-zsh"
 
 cat ~/banners/dragon.txt
 
+# Display weather
+curl 'wttr.in/Pune?format=%l+weather+:+%C+%c+|+Temperature+%t+|+Feels+like+%f+|+Humidity+%h+|+Moon+phase+%m+|+Sunrise+%S+|+Sunset+%s\n'
+
 # Move up faster
 alias ..1="cd .."
 alias ..2="cd ../.."
