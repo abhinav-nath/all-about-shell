@@ -19,6 +19,11 @@ alias ..5="cd ../../../../.."
 alias ll="ls -lrth"
 alias lla="ls -lrtha"
 
+alias utc="TZ=UTC date"
+alias cst="TZ=US/Central date"
+alias est="TZ=US/Eastern date"
+alias ist="TZ=Asia/Kolkata date"
+
 # Add GitHub ssh keys on load
 ssh-add -l >/dev/null
 
@@ -32,12 +37,14 @@ eval "$(pyenv init -)"
 
 export JAVA_8_HOME=$(/usr/libexec/java_home -v1.8)
 export JAVA_11_HOME=$(/usr/libexec/java_home -v11)
+export JAVA_17_HOME=$(/usr/libexec/java_home -v17)
 
 alias java8='export JAVA_HOME=$JAVA_8_HOME'
 alias java11='export JAVA_HOME=$JAVA_11_HOME'
+alias java17='export JAVA_HOME=$JAVA_17_HOME'
 
-# default to Java 11
-java11
+# default to Java 17
+java17
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
