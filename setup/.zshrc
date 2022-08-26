@@ -19,6 +19,11 @@ alias ..5="cd ../../../../.."
 alias ll="ls -lrth"
 alias lla="ls -lrtha"
 
+alias reload="source ~/.zshrc"
+
+# Find top n biggest files (default is 5)
+big() { num=5; if [ $# -gt 0 ]; then num=$1 fi; find . -type f -exec ls -s {} \; | sort -n -r | head -$num | awk '{printf("%.2fM %s\n", $1*512/1024/1024, $2)}' }
+
 alias utc="TZ=UTC date"
 alias cst="TZ=US/Central date"
 alias est="TZ=US/Eastern date"
