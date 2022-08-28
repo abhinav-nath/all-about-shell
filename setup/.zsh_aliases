@@ -1,0 +1,37 @@
+alias al="cat ~/.zshrc"
+
+alias ll="ls -lrth"
+alias lla="ls -lrtha"
+
+alias date="date '+%d-%b-%y | %a | %H:%M:%S | %Z'"
+
+alias utc="TZ=UTC date"
+alias cst="TZ=US/Central date"
+alias est="TZ=US/Eastern date"
+alias ist="TZ=Asia/Kolkata date"
+
+# alias chmod commands
+alias 000='chmod 000'
+alias 644='chmod 644'
+alias 666='chmod 666'
+alias 655='chmod 655'
+alias 755='chmod 755'
+alias 777='chmod 777'
+
+alias cs="cheatsheet" # see functions
+alias serve="python3 -m http.server 8080"
+
+# Search command line history
+alias h="history | grep"
+
+# Search running processes
+alias p="ps aux | grep"
+alias topcpu="/bin/ps -eo pcpu,pid,user,args | sort -k 1 -r | head -10"
+
+# git aliases
+alias gst="git status"
+
+# docker-compose
+alias dC="docker-compose"
+alias dCu="docker-compose up -d"
+alias dCd="docker-compose down"

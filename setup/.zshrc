@@ -4,37 +4,28 @@
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/<user>/.oh-my-zsh"
 
+# Alias definitions
+# You may want to put all your additions into a separate file like
+# ~/.zsh_aliases, instead of adding them here directly
+
+if [ -f ~/.zsh_aliases ]; then
+  . ~/.zsh_aliases
+fi
+
+# Function definitions
+# You may want to put all your additions into a separate file like
+# ~/.zsh_functions, instead of adding them here directly
+
+if [ -f ~/.zsh_functions ]; then
+  . ~/.zsh_functions
+fi
+
 cat ~/banners/dragon.txt
 
-# Display weather
+date # see aliases
 curl 'wttr.in/Pune?format=%l+weather+:+%C+%c+|+Temperature+%t+|+Feels+like+%f+|+Humidity+%h+|+Moon+phase+%m+|+Sunrise+%S+|+Sunset+%s\n'
 
-# Move up faster
-alias ..1="cd .."
-alias ..2="cd ../.."
-alias ..3="cd ../../.."
-alias ..4="cd ../../../.."
-alias ..5="cd ../../../../.."
-
-alias ll="ls -lrth"
-alias lla="ls -lrtha"
-
-alias reload="source ~/.zshrc"
-
-# Find top n biggest files (default is 5)
-big() { num=5; if [ $# -gt 0 ]; then num=$1 fi; find . -type f -exec ls -s {} \; | sort -n -r | head -$num | awk '{printf("%.2fM %s\n", $1*512/1024/1024, $2)}' }
-
-alias utc="TZ=UTC date"
-alias cst="TZ=US/Central date"
-alias est="TZ=US/Eastern date"
-alias ist="TZ=Asia/Kolkata date"
-
-# Add GitHub ssh keys on load
-ssh-add -l >/dev/null
-
-if [[ $? != 0  ]]; then
-  ssh-add ~/.ssh/id_xxx ~/.ssh/id_yyy ~/.ssh/id_zzz 2>/dev/null
-fi
+sshadd # see functions
 
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
@@ -57,61 +48,6 @@ java17
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="robbyrussell"
 
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in $ZSH/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
-
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
-
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to automatically update without prompting.
-# DISABLE_UPDATE_PROMPT="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS="true"
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# Caution: this setting can cause issues with multiline prompts (zsh 5.7.1 and newer seem to work)
-# See https://github.com/ohmyzsh/ohmyzsh/issues/5765
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
@@ -120,31 +56,5 @@ ZSH_THEME="robbyrussell"
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
-
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 
 alias mate="/Applications/TextMate.app/Contents/Resources/mate"

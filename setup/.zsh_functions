@@ -1,0 +1,67 @@
+#!/local/bin/zsh
+
+function reload() {
+  source ~/.zshrc
+  . ~/.zsh_aliases
+  . ~/.zsh_functions
+}
+
+# mkdir + cd
+function mkd() {
+  if [ $# -eq 1 ]; then
+    mkdir -p "$1" && cd "$1";
+  else
+    echo "Error - no directory passed!";
+  fi
+}
+
+# Add ssh keys on login
+function sshadd() {
+  ssh-add -l >/dev/null
+
+  if [[ $? != 0  ]]; then
+    ssh-add ~/.ssh/<key-1> ~/.ssh/<key-2> ~/.ssh/<key-3> 2>/dev/null
+  fi
+}
+
+# Find top n biggest files (default is 5)
+function big() {
+  num=5;
+  if [ $# -gt 0 ]; then
+    num=$1
+  fi;
+  find . -type f -exec ls -s {} \; | sort -n -r | head -$num | awk '{printf("%.2fM %s\n", $1*512/1024/1024, $2)}'
+}
+
+# Timer
+function timer() {
+  count=10;
+  if [ $# -gt 0 ]; then
+    count=$1
+  fi
+  echo "Timer of $count seconds started";
+  for ((i=count; i>0; i--)); do sleep 1; printf "Time remaining : $i seconds \r"; done
+  echo "\nTime Up!"
+  echo -e "\a"
+}
+
+# Most used commands
+function topcmd() {
+  history | awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl |  head -n10
+}
+
+# Go up by n directories
+function up() {
+  level=$1
+  if [ $# -gt 0 ]; then
+    while [ "$level" -gt "0" ]; do
+      cd ..
+      level=$(($level - 1))
+    done
+  else
+    cd ..
+  fi
+}
+
+# cheat.sh shortcut
+function cheatsheet() { curl http://cht.sh/$1 }
