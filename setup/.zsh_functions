@@ -65,3 +65,21 @@ function up() {
 
 # cheat.sh shortcut
 function cheatsheet() { curl http://cht.sh/$1 }
+
+# docker-compose up
+function dCu() {
+  if [ $# -gt 0 ]; then
+    docker-compose -f $1 up -d
+  else
+    docker-compose up -d
+  fi
+}
+
+# docker-compose down
+function dCd() {
+  if [ $# -gt 0 ]; then
+    docker-compose -f $1 down
+  else
+    docker-compose down
+  fi
+}

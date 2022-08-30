@@ -31,7 +31,5 @@ alias topcpu="/bin/ps -eo pcpu,pid,user,args | sort -k 1 -r | head -10"
 # git aliases
 alias gst="git status"
 
-# docker-compose
-alias dC="docker-compose"
-alias dCu="docker-compose up -d"
-alias dCd="docker-compose down"
+# docker ps -a
+alias dps="docker ps --format 'table {{.ID}}\t{{.Image}}\t{{.Status}}\t{{.Names}}\t{{.Ports}}' -a"
