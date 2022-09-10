@@ -1,4 +1,4 @@
-alias al="cat ~/.zshrc"
+alias al="alias"
 
 alias ll="ls -lrth"
 alias lla="ls -lrtha"
