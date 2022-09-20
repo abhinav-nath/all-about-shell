@@ -14,8 +14,8 @@ This repository contains various shell scripting snippets. Great for recalling b
 
 #### My setup for zsh:
 
-- **[Setup](./setup)**
-  - [.zshrc](./setup/.zshrc)
-  - [.zsh_aliases](./setup/.zsh_aliases)
-  - [.zsh_functions](./setup/.zsh_functions)
-  - [kubectl aliases](./setup/kubectl-aliases.md)
+- **[Setup](./dev-setup)**
+  - [.zshrc](./dev-setup/.zshrc)
+  - [.aliases](./dev-setup/.aliases)
+  - [.functions](./dev-setup/.functions)
+  - [kubectl aliases](./dev-setup/kubectl-aliases.md)
