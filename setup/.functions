@@ -1,11 +1,5 @@
 #!/local/bin/zsh
 
-function reload() {
-  source ~/.zshrc
-  . ~/.zsh_aliases
-  . ~/.zsh_functions
-}
-
 # mkdir + cd
 function mkd() {
   if [ $# -eq 1 ]; then

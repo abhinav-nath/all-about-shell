@@ -1,0 +1,53 @@
+alias al="alias"
+
+alias l="ls -lrth"
+alias ll="ls -lrth"
+alias la="ls -lrtha"
+
+# List only directories
+alias ld="ls -lrth | grep '^d'"
+
+# List hidden directories as well
+alias lda="ls -lrtha | grep '^d'"
+
+alias dt="date '+%d-%b-%y | %a | %H:%M:%S | %Z'"
+
+alias utc="TZ=UTC dt"
+alias cst="TZ=US/Central dt"
+alias est="TZ=US/Eastern dt"
+alias ist="TZ=Asia/Kolkata dt"
+
+# alias chmod commands
+alias 000='chmod 000'
+alias 644='chmod 644'
+alias 666='chmod 666'
+alias 655='chmod 655'
+alias 755='chmod 755'
+alias 777='chmod 777'
+
+alias cs="cheatsheet" # see functions
+alias serve="python3 -m http.server 8080"
+
+# Reload the shell (i.e. invoke as a login shell)
+alias reload="exec $SHELL -l"
+
+# Search command line history
+alias h="history | grep"
+
+# Search running processes
+alias p="ps aux | grep"
+alias topcpu="/bin/ps -eo pcpu,pid,user,args | sort -k 1 -r | head -10"
+
+# git aliases
+alias gst="git status"
+
+# docker ps -a
+alias dps="docker ps --format 'table {{.ID}}\t{{.Image}}\t{{.Status}}\t{{.Names}}\t{{.Ports}}' -a"
+
+# Copy to clipboard
+alias c="pbcopy"
+
+# Recursively delete `.DS_Store` files
+alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
+
+alias mate="/Applications/TextMate.app/Contents/Resources/mate"

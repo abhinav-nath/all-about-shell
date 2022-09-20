@@ -6,23 +6,23 @@ export ZSH="/Users/<user>/.oh-my-zsh"
 
 # Alias definitions
 # You may want to put all your additions into a separate file like
-# ~/.zsh_aliases, instead of adding them here directly
+# ~/.aliases, instead of adding them here directly
 
-if [ -f ~/.zsh_aliases ]; then
-  . ~/.zsh_aliases
+if [ -f ~/.aliases ]; then
+  . ~/.aliases
 fi
 
 # Function definitions
 # You may want to put all your additions into a separate file like
-# ~/.zsh_functions, instead of adding them here directly
+# ~/.functions, instead of adding them here directly
 
-if [ -f ~/.zsh_functions ]; then
-  . ~/.zsh_functions
+if [ -f ~/.functions ]; then
+  . ~/.functions
 fi
 
 cat ~/banners/dragon.txt
 
-date # see aliases
+dt # see aliases
 curl 'wttr.in/Pune?format=%l+weather+:+%C+%c+|+Temperature+%t+|+Feels+like+%f+|+Humidity+%h+|+Moon+phase+%m+|+Sunrise+%S+|+Sunset+%s\n'
 
 sshadd # see functions
@@ -56,5 +56,3 @@ ZSH_THEME="robbyrussell"
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
-
-alias mate="/Applications/TextMate.app/Contents/Resources/mate"
