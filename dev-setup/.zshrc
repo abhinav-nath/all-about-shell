@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/<user>/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Alias definitions
 # You may want to put all your additions into a separate file like
