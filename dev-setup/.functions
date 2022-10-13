@@ -9,6 +9,15 @@ function mkd() {
   fi
 }
 
+# Calculate percentage
+function percent() {
+  if [ $# -ne 2 ]; then
+    echo "Error - 2 arguments are mandatory!"
+  fi
+
+  echo "scale=2; $2*$1/100" | bc
+}
+
 # Add ssh keys on login
 function sshadd() {
   ssh-add -l >/dev/null
