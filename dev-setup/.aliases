@@ -51,3 +51,6 @@ alias c="pbcopy"
 alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
 
 alias mate="/Applications/TextMate.app/Contents/Resources/mate"
+
+# Search WikiPedia
+wiki='python -c '\''import sys, wikipedia; print("Please provide a search query!") if len(sys.argv) < 2  else print(wikipedia.summary(sys.argv[1]))'\'
