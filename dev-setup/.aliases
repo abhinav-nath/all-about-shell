@@ -26,6 +26,10 @@ alias 755='chmod 755'
 alias 777='chmod 777'
 
 alias cs="cheatsheet" # see functions
+
+# Python
+pip=pip3
+python=python3
 alias serve="python3 -m http.server 8080"
 
 # Reload the shell (i.e. invoke as a login shell)
