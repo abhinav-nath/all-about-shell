@@ -1,6 +1,7 @@
 # all-about-shell
 
 This repository contains various shell scripting snippets. Great for recalling basic syntaxes while writing shell scripts.
+It also includes a dev setup for `zsh` (aliases, functions, etc).
 
 - **[Scripting](./scripting)**
   - [notes](./scripting/shell-scripting-notes.md)
