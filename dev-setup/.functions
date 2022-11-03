@@ -70,7 +70,7 @@ function up() {
 function cheatsheet() { curl http://cht.sh/$1 }
 
 # docker-compose up
-function dCu() {
+function dcu() {
   if [ $# -gt 0 ]; then
     docker-compose -f $1 up -d
   else
@@ -79,7 +79,7 @@ function dCu() {
 }
 
 # docker-compose down
-function dCd() {
+function dcd() {
   if [ $# -gt 0 ]; then
     docker-compose -f $1 down
   else
