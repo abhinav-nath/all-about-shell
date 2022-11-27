@@ -28,8 +28,8 @@ alias 777='chmod 777'
 alias cs="cheatsheet" # see functions
 
 # Python
-pip=pip3
-python=python3
+alias pip=pip3
+alias python=python3
 alias serve="python3 -m http.server 8080"
 
 # Reload the shell (i.e. invoke as a login shell)
@@ -57,4 +57,4 @@ alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
 alias mate="/Applications/TextMate.app/Contents/Resources/mate"
 
 # Search WikiPedia
-wiki='python -c '\''import sys, wikipedia; print("Please provide a search query!") if len(sys.argv) < 2  else print(wikipedia.summary(sys.argv[1]))'\'
+alias wiki='python -c '\''import sys, wikipedia; print("Please provide a search query!") if len(sys.argv) < 2  else print(wikipedia.summary(sys.argv[1]))'\'
