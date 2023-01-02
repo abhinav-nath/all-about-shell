@@ -20,6 +20,7 @@ It also includes a dev setup for `zsh` (aliases, functions, etc).
   - [.aliases](./dev-setup/.aliases)
   - [.functions](./dev-setup/.functions)
   - [kubectl aliases](./dev-setup/kubectl-aliases.md)
+- **[Useful Mac commands](./mac-cli.md)**
 
 ### Order of Operations
 
