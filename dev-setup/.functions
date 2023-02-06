@@ -86,3 +86,10 @@ function dcd() {
     docker-compose down
   fi
 }
+
+# calculate monthly in-hand salary
+function inhand() {
+  if [ $1 -gt 0 ]; then
+    echo $((($1 * 0.75) / 12))
+  fi
+}
