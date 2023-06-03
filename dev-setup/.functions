@@ -50,7 +50,21 @@ function timer() {
 
 # Most used commands
 function topcmd() {
-history | awk '{$1=""; CMD[$0]++;count++}END {for (a in CMD) print CMD[a]" " CMD[a]/count*100"% " a;}' | grep -v "./" | sort -nr -S1% | nl | head -n20 -z | column -t -N Rank,Count,Percent,Command,Arguments -R Rank,Count,Percent
+ if [ -z "$1" ]; then
+    printf '\n\e[0;32m%s\e[0m\n\n' "The most frequently used commands are..."
+    history | awk '$1="";{CMD[$2]++;count++;}END { for (a in CMD) print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | sort -S1% -nr -f | nl -n rn |  head -n20 | column -t -N Rank,Count,Percent,Command -R Rank,Count,Percent
+    printf '\n\e[0;32m%s\e[1;35m%s\e[0;32m%s\e[0m\n\n' "Type " "topcmd -v" " for a more detailed output including the respective command arguments, or piped commands etc."
+  else
+    case "$1" in
+      "-v")
+        printf '\n\e[0;32m%s\e[0;36m\n%s\e[0m\n\n' "The most frequently used commands (divided according to given arguments) are..." "(Very long commands can cause line breaks, making the output difficult to read)"
+        history | awk '$1="";{CMD[$0]++;count++}END {for (a in CMD) print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | sort -S1% -nr -f | nl -n rn | head -n20 | column -t -N Rank,Count,Percent,Command,Arguments -R Rank,Count,Percent && printf '\n'
+        ;;
+      *)
+        printf '\n\e[0;31m%s\e[0m\n\n\e[0;31m%s \e[0;32m%s \e[0;31m%s \e[0;32m%s \e[0;31m%s \e[0m\n\n' "  Invalid argument." "  Usage:" "topcmd -v" "or just" "topcmd" "without arguments."
+        ;;
+    esac
+  fi
 }
 
 # Go up by n directories
