@@ -50,21 +50,51 @@ function timer() {
 
 # Most used commands
 function topcmd() {
- if [ -z "$1" ]; then
-    printf '\n\e[0;32m%s\e[0m\n\n' "The most frequently used commands are..."
-    history | awk '$1="";{CMD[$2]++;count++;}END { for (a in CMD) print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | sort -S1% -nr -f | nl -n rn |  head -n20 | column -t -N Rank,Count,Percent,Command -R Rank,Count,Percent
-    printf '\n\e[0;32m%s\e[1;35m%s\e[0;32m%s\e[0m\n\n' "Type " "topcmd -v" " for a more detailed output including the respective command arguments, or piped commands etc."
-  else
-    case "$1" in
-      "-v")
-        printf '\n\e[0;32m%s\e[0;36m\n%s\e[0m\n\n' "The most frequently used commands (divided according to given arguments) are..." "(Very long commands can cause line breaks, making the output difficult to read)"
-        history | awk '$1="";{CMD[$0]++;count++}END {for (a in CMD) print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | sort -S1% -nr -f | nl -n rn | head -n20 | column -t -N Rank,Count,Percent,Command,Arguments -R Rank,Count,Percent && printf '\n'
+_msg="\n\e[0;32m The most frequently used commands are...\e[0;0m\n\n"
+_msg_v="\n\e[0;32m The most frequently used commands (divided according to given arguments) are...\n\e[0;33m (Very long commands can cause line breaks, making the output difficult to read)\e[0m\n\n"
+_info="\n\e[0;38mType\e[0;32m topcmd -v \e[0;38mfor verbosed output.\e[0;0m\n\n"
+_invalid="\n\e[5;31m  Invalid argument. \e[0m\n\n\e[0;38m  Usage: \e[0;32mtopcmd -v \e[0;38mor just \e[0;32mtopcmd \e[0;38mwithout arguments.\e[0;0m\n\n"
+[[ -x "/usr/bin/uname" ]] && OS=$(uname)
+export OS
+if [[ -n $OS ]]; then
+case "$OS" in
+   Linux) if [[ $1 = "" ]]; then
+             echo -en "$_msg"
+             history | awk '{CMD[$2]++;count++;}END { for (a in CMD) print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | sort -S1% -nr -f | nl -n rn |  head -n10 | column -t -N Rank,Count,Percent,Command -R Rank,Count,Percent && printf '\n'
+             echo -en "$_info"
+          elif [[ $1 = "-v" ]]
+             then echo -en "$_msg_v"
+             fc -l 1 | awk '$1="";{CMD[$0]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | sort -S1% -nr -f | nl -n rn | head -n20 | column -t -N Rank,Count,Percent,Command,Arguments -R Rank,Count,Percent && printf '\n'
+          else
+             echo -en "$_invalid"
+          fi
         ;;
-      *)
-        printf '\n\e[0;31m%s\e[0m\n\n\e[0;31m%s \e[0;32m%s \e[0;31m%s \e[0;32m%s \e[0;31m%s \e[0m\n\n' "  Invalid argument." "  Usage:" "topcmd -v" "or just" "topcmd" "without arguments."
+  Darwin) if [[ $1 = "" ]]; then
+             echo -en "$_msg"
+             history | awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl |  head -n10 && printf '\n'
+             echo -en "$_info"
+          elif [[ $1 = "-v" ]]
+             then echo -en "$_msg_v"
+             fc -l 0 | awk '{CMD[$0]++;count++}END {for (a in CMD) print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl |  head -n20 && printf '\n'
+          else
+             echo -en "$_invalid"
+          fi
         ;;
-    esac
-  fi
+
+       *) if [[ $1 = "" ]]; then
+             echo -en "$_msg"
+             history | awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl |  head -n10 && printf '\n'
+          elif [[ $1 = "-v" ]];
+             then echo -en "$_msg_v"
+             fc -l 0 | awk '$1="";{CMD[$0]++;count++}END {for (a in CMD) print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl |  head -n20 && printf '\n'
+          else
+             echo -en "$_invalid"
+          fi
+        ;;
+esac
+else echo "Unknown OS type."
+return
+fi
 }
 
 # Go up by n directories
