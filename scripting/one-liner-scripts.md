@@ -37,3 +37,9 @@ $ for f in config*New; do new_f=$(echo $f | sed 's/New//'); cp $f $new_f; rm -f 
 ```shell
 str="hello"; echo "len=${#str}"; if [[ ${#str} > 0 ]]; then echo "valid string"; else echo "empty string"; fi
 ```
+
+#### Find out top 5 java files with maximum number of lines and display their line count
+
+```shell
+find . -name "*.java" -exec wc -l {} + | sort -rn | head -n 6 | tail +2
+```
