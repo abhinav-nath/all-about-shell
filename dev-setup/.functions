@@ -93,3 +93,9 @@ function inhand() {
     echo $((($1 * 0.75) / 12))
   fi
 }
+
+# find top 5 files with maximum number of lines
+function find_top_files() {
+  local file_pattern="${1:-*.java}"
+  find . -name "$file_pattern" -type f -exec wc -l {} + | sort -rn | head -n 6 | tail +2
+}
