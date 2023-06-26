@@ -58,3 +58,24 @@ alias mate="/Applications/TextMate.app/Contents/Resources/mate"
 
 # Search WikiPedia
 alias wiki='python -c '\''import sys, wikipedia; print("Please provide a search query!") if len(sys.argv) < 2  else print(wikipedia.summary(sys.argv[1]))'\'
+
+# kubectl aliases
+alias k="kubectl"
+alias kg="k get"
+alias kgpo="k get pods"
+alias kgdep="k get deployments"
+alias kgsvc="k get services"
+alias kgcm="k get cm"
+alias kdpo="k describe pod"
+alias kddep="k describe deployment"
+alias kdsvc="k describe service"
+alias kdcm="k describe cm"
+alias ktpo="k top pods"
+alias kex="kubectl exec -i -t"
+alias krm="k delete"
+alias krmdep="k delete deployment"
+alias krmsvc="k delete service"
+alias krmcm="k delete configmap"
+
+# get services count
+alias kgsvccnt="k get svc | sed -n '1!p' | wc -l"
