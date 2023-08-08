@@ -66,9 +66,25 @@ f2c() {
     echo "$feet ft $inches in = $centimeters cm"
 }
 
+# Function to convert from centimeters to feet and inches
+c2f() {
+    if [ $# -lt 1 ]; then
+        echo "Error: Missing parameter. Usage: c2f <centimeters>"
+        return 1
+    fi
+
+    centimeters=$1
+    total_inches=$(bc <<< "scale=2; $centimeters / 2.54")
+
+    feet=$((total_inches / 12))
+    remaining_inches=$((total_inches % 12))
+
+    echo "$centimeters cms = $feet ft and $remaining_inches in"
+}
+
 # Main script
 if [ $# -eq 0 ]; then
-    echo "Error: No function name provided. Available functions: f2i, i2c, c2i, i2f, f2c"
+    echo "Error: No function name provided. Available functions: f2i, i2c, c2i, i2f, f2c, c2f"
     exit 1
 fi
 
@@ -81,8 +97,9 @@ case "$function_name" in
     "c2i") c2i "$@" ;;
     "i2f") i2f "$@" ;;
     "f2c") f2c "$@" ;;
+    "c2f") c2f "$@" ;;
     *)
-        echo "Error: Invalid function name. Available functions: f2i, i2c, c2i, i2f, f2c"
+        echo "Error: Invalid function name. Available functions: f2i, i2c, c2i, i2f, f2c, c2f"
         exit 1
         ;;
 esac
