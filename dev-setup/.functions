@@ -155,6 +155,14 @@ kscale() { k scale deployment "$1" --replicas="$2"; }
 # enter into pod's bash shell
 kbash() { kubectl -it exec "$1" bash; }
 
+coinflip() {
+    if [ $((RANDOM % 2)) -eq 0 ]; then
+        echo "Heads"
+    else
+        echo "Tails"
+    fi
+}
+
 # Function to convert from feet to inches
 f2i() {
     if [ $# -lt 1 ]; then
