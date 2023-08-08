@@ -11,7 +11,7 @@ f2i() {
     inches=${2:-0}  # If in not provided, default to 0
 
     total_inches=$((feet * 12 + inches))
-    echo "$feet ft $inches in = $total_inches inches"
+    echo "$feet ft $inches in = $total_inches in"
 }
 
 # Function to convert from in to centimeters
@@ -35,7 +35,7 @@ c2i() {
 
     centimeters=$1
     inches=$(bc <<< "scale=2; $centimeters / 2.54")
-    echo "$centimeters cm = $inches inches"
+    echo "$centimeters cm = $inches in"
 }
 
 # Function to convert from inches to feet
@@ -48,7 +48,7 @@ i2f() {
     inches=$1
     feet=$((inches / 12))
     remaining_inches=$((inches % 12))
-    echo "$inches in = $feet ft $remaining_inches inches"
+    echo "$inches in = $feet ft $remaining_inches in"
 }
 
 # Function to convert from feet to centimeters
