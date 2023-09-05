@@ -51,6 +51,9 @@ alias dps="docker ps --format 'table {{.ID}}\t{{.Image}}\t{{.Status}}\t{{.Names}
 # Copy to clipboard
 alias c="pbcopy"
 
+# See details about port in use
+alias portinuse='lsof -i -n -P | grep $1'
+
 # Recursively delete `.DS_Store` files
 alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
 
