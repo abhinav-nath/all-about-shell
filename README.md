@@ -13,13 +13,14 @@ It also includes a dev setup for `zsh` (aliases, functions, etc).
   - [loops](./scripting/loops)
   - [wildcards](./scripting/wildcards)
 
-#### My setup for zsh:
+#### My Dev setup for MacOS:
 
 - **[Setup](./dev-setup)**
   - [.zshrc](./dev-setup/.zshrc)
   - [.aliases](./dev-setup/.aliases)
   - [.functions](./dev-setup/.functions)
   - [kubectl aliases](./dev-setup/kubectl-aliases.md)
+  - [Textmate setup for Java](./dev-setup/textmate-setup-for-java.md)
 - **[Useful Mac commands](./mac-cli.md)**
 
 ### Order of Operations
