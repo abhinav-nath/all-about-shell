@@ -82,3 +82,13 @@ alias krmcm="k delete configmap"
 
 # get services count
 alias kgsvccnt="k get svc | sed -n '1!p' | wc -l"
+
+alias ff="find . -type f -name"                # Usage: ff '*.log'
+alias fd="find . -type d -name"                # Usage: fd 'node_modules'
+alias please="sudo $(fc -ln -1)"               # Re-run last command with sudo
+alias cls="clear; echo -e '\e[3J'"             # Clear scrollback too
+
+alias sz="du -sh"                              # Size of current directory
+alias lsz="ls -lhS"                            # List files by size
+alias latest="ls -t | head -n 10"              # 10 most recently modified files
+alias ext="ls -X"                              # Sort by extension
