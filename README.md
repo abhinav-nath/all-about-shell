@@ -19,6 +19,7 @@ It also includes a dev setup for `zsh` (aliases, functions, etc).
   - [.zshrc](./dev-setup/.zshrc)
   - [.aliases](./dev-setup/.aliases)
   - [.functions](./dev-setup/.functions)
+  - [.vimrc](./dev-setup/.vimrc)
   - [kubectl aliases](./dev-setup/kubectl-aliases.md)
   - [Textmate setup for Java](./dev-setup/textmate-setup-for-java.md)
 - **[Useful Mac commands](./mac-cli.md)**
