@@ -62,6 +62,9 @@ alias mate="/Applications/TextMate.app/Contents/Resources/mate"
 # Search WikiPedia
 alias wiki='python -c '\''import sys, wikipedia; print("Please provide a search query!") if len(sys.argv) < 2  else print(wikipedia.summary(sys.argv[1]))'\'
 
+# Show my IP
+alias showmyip="dig +short @ns1-1.akamaitech.net ANY whoami.akamai.net"
+
 # kubectl aliases
 alias k="kubectl"
 alias kg="k get"
