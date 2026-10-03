@@ -5,7 +5,7 @@ It also includes a dev setup for `zsh` (aliases, functions, etc).
 
 - **[Scripting](./scripting)**
   - [notes](./scripting/shell-scripting-notes.md)
-  - [One liner scripts](./scripting/one-liner-scripts.md)
+  - [one liner scripts](./scripting/one-liner-scripts.md)
   - [arguments](./scripting/arguments)
   - [arrays](./scripting/arrays)
   - [awk](./scripting/awk)
