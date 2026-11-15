@@ -244,3 +244,30 @@ c2f() {
 
     echo "$centimeters cms = $feet ft and $remaining_inches in"
 }
+
+# Executes a command, displays its output in the terminal, and automatically
+# copies both the command and its output to the macOS clipboard.
+# Useful for sharing terminal commands and their results without manual selection.
+#
+# Usage: cc <command> [arguments...]
+# Example: cc pyenv versions
+#
+# Note: Captures both stdout and stderr. Not suitable for interactive commands.
+cc() {
+  {
+    printf '❯ %s\n' "$*"
+    "$@" 2>&1
+  } | tee >(pbcopy)
+}
+
+# Navigate to the root directory of the current Git repository.
+# Works from any subdirectory within the repository.
+# Usage: groot
+groot() {
+  local root
+  root=$(git rev-parse --show-toplevel 2>/dev/null) || {
+    echo "Not inside a Git repository."
+    return 1
+  }
+  cd "$root"
+}
